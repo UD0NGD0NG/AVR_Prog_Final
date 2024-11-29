@@ -7,9 +7,9 @@ namespace PriorityQueue
     {
         private List<(double, int)> arr;
 
-        PQ()
+        public PQ()
         {
-            arr.Add((0, 0));
+            arr = new List<(double, int)>() { (0, 0) };
         }
 
         public void push(double weight, int arrivalNode)

@@ -20,10 +20,7 @@ public class TargetManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
-    void Start()
-    {
         GameObject[] t = GameObject.FindGameObjectsWithTag("Target");
         foreach (var x in t)
         {
@@ -31,8 +28,23 @@ public class TargetManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        
+    }
+
     void Update()
     {
+        
+    }
 
+    public void getShortenPath(double dist)
+    {
+        Debug.Log(dist);
+    }
+
+    public void forDebug(int i)
+    {
+        Debug.Log(i);
     }
 }
