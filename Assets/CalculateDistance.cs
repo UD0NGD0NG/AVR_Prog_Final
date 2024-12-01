@@ -20,6 +20,8 @@ public class CalculateDistance : MonoBehaviour
     private List<int> prev;
     private int departureNodeId, arrivalNodeId;
 
+    private int edgeCnt = 0;
+
     void Awake()
     {
         
@@ -44,6 +46,7 @@ public class CalculateDistance : MonoBehaviour
         Dijkstra();
         TargetManager.instance.getShortenPath(dist[arrivalNodeId]);
         PrintShortenPath();
+        Debug.Log("간선 개수 : " + edgeCnt);
     }
 
     private void MakeGraph()
@@ -61,8 +64,23 @@ public class CalculateDistance : MonoBehaviour
             {
                 if (i == j) continue;
 
-                double d = Vector3.Distance(idToTarget[i].transform.position, idToTarget[j].transform.position);
-                edge[i].Add((d, j));
+                //double d = Vector3.Distance(idToTarget[i].transform.position, idToTarget[j].transform.position);
+                //edge[i].Add((d, j));
+                //edgeCnt++;
+
+                Vector3 startPos = idToTarget[i].transform.position;
+                Vector3 endPos = idToTarget[j].transform.position;
+                Vector3 direction = endPos - startPos;
+                float distance = direction.magnitude;
+
+                Debug.DrawRay(startPos, direction, Color.red, 1.0f);
+
+                RaycastHit hit;
+                if (!Physics.Raycast(startPos, direction.normalized, out hit, distance) || hit.collider.tag != "Wall")
+                {
+                    edge[i].Add((distance, j));
+                    edgeCnt++;
+                }
             }
         }
     }
