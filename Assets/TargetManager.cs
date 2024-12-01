@@ -42,9 +42,4 @@ public class TargetManager : MonoBehaviour
     {
         Debug.Log(dist);
     }
-
-    public void forDebug(int i)
-    {
-        Debug.Log(i);
-    }
 }

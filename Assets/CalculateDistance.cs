@@ -17,6 +17,7 @@ public class CalculateDistance : MonoBehaviour
     private int size;
     private List<double> dist;
     private List<List<(double, int)>> edge;
+    private List<int> prev;
     private int departureNodeId, arrivalNodeId;
 
     void Awake()
@@ -42,6 +43,7 @@ public class CalculateDistance : MonoBehaviour
         SetDepArr();
         Dijkstra();
         TargetManager.instance.getShortenPath(dist[arrivalNodeId]);
+        PrintShortenPath();
     }
 
     private void MakeGraph()
@@ -77,6 +79,7 @@ public class CalculateDistance : MonoBehaviour
 
     private void Dijkstra()
     {
+        prev = Enumerable.Repeat(-1, size + 1).ToList();
         dist[departureNodeId] = 0;
         for (int i = 1; i <= size; i++)
         {
@@ -92,9 +95,31 @@ public class CalculateDistance : MonoBehaviour
                 if (dist[y.Item2] != Math.Min(dist[y.Item2], dist[x] + y.Item1))
                 {
                     dist[y.Item2] = Math.Min(dist[y.Item2], dist[x] + y.Item1);
+                    prev[y.Item2] = x;
                     pq.push(-dist[y.Item2], y.Item2);
                 }
             }
         }
+    }
+
+    private void PrintShortenPath()
+    {
+        Stack<int> path = new Stack<int>();
+
+        for (int node = arrivalNodeId; node != -1; node = prev[node])
+        {
+            path.Push(node);
+        }
+
+        Debug.Log(idToTarget[departureNodeId].name + " -> " + idToTarget[arrivalNodeId].name);
+
+        string res = "";
+        while (path.Count > 1)
+        {
+            res += idToTarget[path.Pop()].name + " -> ";
+        }
+        res += idToTarget[path.Pop()].name;
+
+        Debug.Log(res);
     }
 }
