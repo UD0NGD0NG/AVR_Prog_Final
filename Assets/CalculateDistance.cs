@@ -20,8 +20,6 @@ public class CalculateDistance : MonoBehaviour
     private List<int> prev;
     private int departureNodeId, arrivalNodeId;
 
-    private int edgeCnt = 0;
-
     void Awake()
     {
         
@@ -46,7 +44,7 @@ public class CalculateDistance : MonoBehaviour
         Dijkstra();
         TargetManager.instance.getShortenPath(dist[arrivalNodeId]);
         PrintShortenPath();
-        Debug.Log("간선 개수 : " + edgeCnt);
+        StartCoroutine(ShowNextPos());
     }
 
     private void MakeGraph()
@@ -64,22 +62,15 @@ public class CalculateDistance : MonoBehaviour
             {
                 if (i == j) continue;
 
-                //double d = Vector3.Distance(idToTarget[i].transform.position, idToTarget[j].transform.position);
-                //edge[i].Add((d, j));
-                //edgeCnt++;
-
                 Vector3 startPos = idToTarget[i].transform.position;
                 Vector3 endPos = idToTarget[j].transform.position;
                 Vector3 direction = endPos - startPos;
                 float distance = direction.magnitude;
 
-                Debug.DrawRay(startPos, direction, Color.red, 1.0f);
-
                 RaycastHit hit;
                 if (!Physics.Raycast(startPos, direction.normalized, out hit, distance) || hit.collider.tag != "Wall")
                 {
                     edge[i].Add((distance, j));
-                    edgeCnt++;
                 }
             }
         }
@@ -139,5 +130,32 @@ public class CalculateDistance : MonoBehaviour
         res += idToTarget[path.Pop()].name;
 
         Debug.Log(res);
+    }
+
+    private IEnumerator ShowNextPos()
+    {
+        Stack<int> path = new Stack<int>();
+
+        for (int node = arrivalNodeId; node != -1; node = prev[node])
+        {
+            path.Push(node);
+        }
+
+        while (path.Count > 0)
+        {
+            GameObject curPos = idToTarget[path.Pop()];
+
+            GameObject sprite = curPos.transform.GetChild(0).gameObject;
+            sprite.SetActive(true);
+
+            yield return StartCoroutine(WaitForReach(curPos.GetComponent<BoxCollider>(), sprite));
+            
+            sprite.SetActive(false);
+        }
+    }
+
+    IEnumerator WaitForReach(BoxCollider b, GameObject sprite)
+    {
+        while (b.enabled) yield return null;
     }
 }
