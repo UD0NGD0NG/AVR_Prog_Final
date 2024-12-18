@@ -30,6 +30,8 @@ public class CalculateDistance : MonoBehaviour
     private bool setDep = false;
     private bool setArr = false;
 
+    public GameObject player;
+
     async void Start()
     {
         idToTarget = TargetManager.instance.idToTarget;
@@ -42,9 +44,11 @@ public class CalculateDistance : MonoBehaviour
         MakeGraph();
         SetDepArr();
         await WaitUntil(() => setArr);
+        player.transform.position = idToTarget[departureNodeId].transform.position;
         Dijkstra();
         PrintShortenPath();
         StartCoroutine(ShowNextPos());
+        Debug.Log("Arrive!");
     }
 
     private void MakeGraph()
@@ -68,6 +72,7 @@ public class CalculateDistance : MonoBehaviour
                 float distance = direction.magnitude;
 
                 RaycastHit hit;
+                
                 if (!Physics.Raycast(startPos, direction.normalized, out hit, distance) || hit.collider.tag != "Wall")
                 {
                     edge[i].Add((distance, j));

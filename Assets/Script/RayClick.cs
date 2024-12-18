@@ -16,11 +16,6 @@ public class RayClick : MonoBehaviour
     private bool isMoving = false;
     private Vector3 goalPos;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         RaycastHit hit;
