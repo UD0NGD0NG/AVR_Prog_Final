@@ -29,6 +29,8 @@ public class CalculateDistance : MonoBehaviour
     private bool setButton = false;
     private bool setDep = false;
     private bool setArr = false;
+    
+    private bool offParticle = false;
 
     public GameObject player;
 
@@ -41,6 +43,20 @@ public class CalculateDistance : MonoBehaviour
 
         pq = new PQ();
 
+        foreach (GameObject x in TargetManager.instance.targets)
+        {
+            Transform[] children = x.GetComponentsInChildren<Transform>();
+
+            foreach (Transform child in children)
+            {
+                if (child.CompareTag("Particle"))
+                {
+                    child.gameObject.SetActive(false);
+                }
+            }
+        }
+        offParticle = true;
+
         MakeGraph();
         SetDepArr();
         await WaitUntil(() => setArr);
@@ -48,7 +64,6 @@ public class CalculateDistance : MonoBehaviour
         Dijkstra();
         PrintShortenPath();
         StartCoroutine(ShowNextPos());
-        Debug.Log("Arrive!");
     }
 
     private void MakeGraph()
@@ -72,17 +87,22 @@ public class CalculateDistance : MonoBehaviour
                 float distance = direction.magnitude;
 
                 RaycastHit hit;
-                
                 if (!Physics.Raycast(startPos, direction.normalized, out hit, distance) || hit.collider.tag != "Wall")
                 {
+                    Debug.DrawLine(startPos, endPos, Color.red, 0.1f);
                     edge[i].Add((distance, j));
+                }
+                else
+                {
+                    Debug.DrawLine(startPos, endPos, Color.blue, 0.1f);
                 }
             }
         }
     }
 
-    private void SetDepArr()
+    private async void SetDepArr()
     {
+        await WaitUntil(() => offParticle);
         for (int i = 0; i < settingButtons.Length; i++)
         {
             foreach (GameObject x in targets)
@@ -192,6 +212,7 @@ public class CalculateDistance : MonoBehaviour
             }
             if (setDep && !setArr && !settingArr.gameObject.activeSelf)
             {
+                await TargetManager.instance.Wait(2);
                 settingArr.gameObject.SetActive(true);
             }
         }
