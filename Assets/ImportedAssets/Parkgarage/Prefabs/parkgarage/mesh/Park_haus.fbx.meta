@@ -1,0 +1,359 @@
+fileFormatVersion: 2
+guid: 5edd4747c884a664d96748dbc79fe217
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: cable_parkgarage
+    100002: Floor_paint
+    100004: Grass_roof
+    100006: Lamp_grid
+    100008: Park_garage
+    100010: //RootNode
+    100012: Stairs
+    100014: stairwell
+    100016: Tree
+    100018: Tree_holder
+    100020: Glass_couple_roof
+    100022: Glass_couple_roof.001
+    100024: Glass_couple_roof.002
+    100026: Stairs_glass
+    100028: Stairs_glass_2
+    100030: Stairs_MetalPole
+    100032: Stone_roof
+    400000: cable_parkgarage
+    400002: Floor_paint
+    400004: Grass_roof
+    400006: Lamp_grid
+    400008: Park_garage
+    400010: //RootNode
+    400012: Stairs
+    400014: stairwell
+    400016: Tree
+    400018: Tree_holder
+    400020: Glass_couple_roof
+    400022: Glass_couple_roof.001
+    400024: Glass_couple_roof.002
+    400026: Stairs_glass
+    400028: Stairs_glass_2
+    400030: Stairs_MetalPole
+    400032: Stone_roof
+    2300000: cable_parkgarage
+    2300002: Floor_paint
+    2300004: Grass_roof
+    2300006: Lamp_grid
+    2300008: Park_garage
+    2300010: Stairs
+    2300012: stairwell
+    2300014: Tree
+    2300016: Tree_holder
+    2300018: Glass_couple_roof
+    2300020: Glass_couple_roof.001
+    2300022: Glass_couple_roof.002
+    2300024: Stairs_glass
+    2300026: Stairs_glass_2
+    2300028: Stairs_MetalPole
+    2300030: Stone_roof
+    3300000: cable_parkgarage
+    3300002: Floor_paint
+    3300004: Grass_roof
+    3300006: Lamp_grid
+    3300008: Park_garage
+    3300010: Stairs
+    3300012: stairwell
+    3300014: Tree
+    3300016: Tree_holder
+    3300018: Glass_couple_roof
+    3300020: Glass_couple_roof.001
+    3300022: Glass_couple_roof.002
+    3300024: Stairs_glass
+    3300026: Stairs_glass_2
+    3300028: Stairs_MetalPole
+    3300030: Stone_roof
+    4300000: cable_parkgarage
+    4300002: Lamp_grid
+    4300004: Floor_paint
+    4300006: stairwell
+    4300008: Grass_roof
+    4300010: Park_garage
+    4300012: Stairs
+    4300014: Tree
+    4300016: Tree_holder
+    4300018: Glass_couple_roof.002
+    4300020: Glass_couple_roof.001
+    4300022: Glass_couple_roof
+    4300024: Stone_roof
+    4300026: Stairs_glass_2
+    4300028: Stairs_glass
+    4300030: Stairs_MetalPole
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Big_poles
+    second: {fileID: 2100000, guid: 7771f0ce163c83e43be3eedad211622a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Curve
+    second: {fileID: 2100000, guid: 82812083eefb8994b9157dc7902791e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door_frame
+    second: {fileID: 2100000, guid: 6375d2965c070af4b8f455ba68223f84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fence
+    second: {fileID: 2100000, guid: f7574fb173601444bb8635edb312415b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor_up_wall
+    second: {fileID: 2100000, guid: 1cced0a0167e5fd46878078d941b725e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grass
+    second: {fileID: 2100000, guid: 288f06a9058b78e42a80774629885219, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grid
+    second: {fileID: 2100000, guid: f6dfae6f450b5fd4f87b0b8363e2ebda, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Parkgarage_floor
+    second: {fileID: 2100000, guid: c42afe5a0c45eaf49a34188947c9626a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Parkgarage_outside_A
+    second: {fileID: 2100000, guid: 68d60a6003767ee40ab04a9511254bb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Parking_sign
+    second: {fileID: 2100000, guid: dd1216cea9d3d9c4186ae6b392c32e0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Poles
+    second: {fileID: 2100000, guid: d31bb018f8e72b447b3511fbd13ed771, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoofTop_window
+    second: {fileID: 2100000, guid: 5105f3e5fc98fb84089b200f5b06f59d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoofTop_window_frame
+    second: {fileID: 2100000, guid: 9778c428b4e00624aa645ddc0ad715ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoofTop_window_holder
+    second: {fileID: 2100000, guid: 1c75e93ba7dc0d9438242c4e3148715d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof_top
+    second: {fileID: 2100000, guid: 00f5b3c9749aa454ba0de3e57b86508e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stair_Handrail
+    second: {fileID: 2100000, guid: 6c7f7004e6a810a4491ab1ebf1724b0b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stair_metal
+    second: {fileID: 2100000, guid: 6e9f5695efac1f84faba6da3adbb2081, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stair_surface_top
+    second: {fileID: 2100000, guid: a3fe025c4422ccb4ab44160f8cebe76e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stairs_floor
+    second: {fileID: 2100000, guid: 6661a8a055cf05d49a26dee035bf0ba9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone
+    second: {fileID: 2100000, guid: 94c05015d21d71542bca605f06affcd2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_front_in
+    second: {fileID: 2100000, guid: 13842d0d0b333b94fbd37a28bf105c85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Window_frames_A
+    second: {fileID: 2100000, guid: 895db3506e3664449ac47aed6c58653f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arrors
+    second: {fileID: 2100000, guid: 63c34263a215a314f937b405dfb5f8bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blanket
+    second: {fileID: 2100000, guid: 2afadaf731e32774db3913557604e79a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cable
+    second: {fileID: 2100000, guid: 48a3f72806d98814e81acd3d8afe6ba1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fence_poles
+    second: {fileID: 2100000, guid: 7cc7fe4f6e217c445add06450e3e235d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: footbridge_roof
+    second: {fileID: 2100000, guid: 145f65129306b10488a871145324bcde, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: park_garage_roof
+    second: {fileID: 2100000, guid: 78c753ca228b34f45b2594ba6251ad0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ramp
+    second: {fileID: 2100000, guid: 23d0aac0f9c0ca9409d42fb388d11742, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sidewalk_A
+    second: {fileID: 2100000, guid: dd95d210e7b94c64189c87de17dd4ee4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sidewalk_B
+    second: {fileID: 2100000, guid: 3f6d331078d791143b6d7823801445f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stair_grid
+    second: {fileID: 2100000, guid: 789443031b8794c45b550d4ef5a1913f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stair_pole
+    second: {fileID: 2100000, guid: 64a49d7017bf3424189d77b5963ddda6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stairwell_floor
+    second: {fileID: 2100000, guid: c416efc97ba2040418e7d15e17879db2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stairwell_wall
+    second: {fileID: 2100000, guid: 9bd085fb9ce212547bafe29a27a2482c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone_railing
+    second: {fileID: 2100000, guid: 2e8003748a0b670408401869f6d46d5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window_frames_B
+    second: {fileID: 2100000, guid: d9c82c7ec74bc364b90c0902091423e3, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
