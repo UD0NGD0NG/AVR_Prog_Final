@@ -6,6 +6,8 @@ using System.Linq;
 using System.Runtime.ExceptionServices;
 using System;
 using UnityEditor.Experimental.UIElements.GraphView;
+using UnityEngine.UI;
+using System.Threading.Tasks;
 
 public class CalculateDistance : MonoBehaviour
 {
@@ -21,12 +23,14 @@ public class CalculateDistance : MonoBehaviour
     private List<int> prev;
     private int departureNodeId, arrivalNodeId;
 
-    void Awake()
-    {
-        
-    }
+    public Canvas settingDep;
+    public Canvas settingArr;
+    public Button[] settingButtons;
+    private bool setButton = false;
+    private bool setDep = false;
+    private bool setArr = false;
 
-    void Start()
+    async void Start()
     {
         idToTarget = TargetManager.instance.idToTarget;
         targetToId = TargetManager.instance.targetToId;
@@ -37,8 +41,8 @@ public class CalculateDistance : MonoBehaviour
 
         MakeGraph();
         SetDepArr();
+        await WaitUntil(() => setArr);
         Dijkstra();
-        TargetManager.instance.getShortenPath(dist[arrivalNodeId]);
         PrintShortenPath();
         StartCoroutine(ShowNextPos());
     }
@@ -74,12 +78,20 @@ public class CalculateDistance : MonoBehaviour
 
     private void SetDepArr()
     {
-        departureNodeId = UnityEngine.Random.Range(1, size + 1);
-        
-        do
+        for (int i = 0; i < settingButtons.Length; i++)
         {
-            arrivalNodeId = UnityEngine.Random.Range(1, size + 1);
-        } while (departureNodeId == arrivalNodeId);
+            foreach (GameObject x in targets)
+            {
+                if (x.name == settingButtons[i].name)
+                {
+                    settingButtons[i].name = targetToId[x].ToString();
+                }
+            }
+        }
+        setButton = true;
+
+        SetDep();
+        SetArr();
     }
 
     private void Dijkstra()
@@ -153,5 +165,44 @@ public class CalculateDistance : MonoBehaviour
     IEnumerator WaitForReach(BoxCollider b, GameObject sprite)
     {
         while (b.enabled) yield return null;
+    }
+
+    async void SetDep()
+    {
+        await WaitUntil(() => setButton);
+    }
+    async void SetArr()
+    {
+        await WaitUntil(() => setDep);
+    }
+
+    private async Task WaitUntil(System.Func<bool> condition)
+    {
+        while (!condition())
+        {
+            await Task.Delay(100);
+            if (setButton && !setDep && !settingDep.gameObject.activeSelf)
+            {
+                settingDep.gameObject.SetActive(true);
+            }
+            if (setDep && !setArr && !settingArr.gameObject.activeSelf)
+            {
+                settingArr.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void SetDepButton(GameObject button)
+    {
+        departureNodeId = int.Parse(button.name);
+        setDep = true;
+        settingDep.gameObject.SetActive(false);
+    }
+
+    public void SetArrButton(GameObject button)
+    {
+        arrivalNodeId = int.Parse(button.name);
+        setArr = true;
+        settingArr.gameObject.SetActive(false);
     }
 }

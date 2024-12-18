@@ -81,6 +81,19 @@ CapsuleCollider:
   m_Height: 42.876755
   m_Direction: 1
   m_Center: {x: 0.28199768, y: 0.3524475, z: 0}
+--- !u!65 &2135812289
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5995709513682562695}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 80, y: 30, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7699209764392577979
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,11 +667,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4343446450650838121, guid: aa0194d341ce51e4aa3f91b41806aa12,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343446450650838121, guid: aa0194d341ce51e4aa3f91b41806aa12,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343446450650838121, guid: aa0194d341ce51e4aa3f91b41806aa12,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343446450650838121, guid: aa0194d341ce51e4aa3f91b41806aa12,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806857192013403103, guid: aa0194d341ce51e4aa3f91b41806aa12,
+        type: 3}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa0194d341ce51e4aa3f91b41806aa12, type: 3}
 --- !u!4 &4109895568242672086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5534844266423106702, guid: aa0194d341ce51e4aa3f91b41806aa12,
+    type: 3}
+  m_PrefabInstance: {fileID: 8486751711725043032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5995709513682562695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2806857192013403103, guid: aa0194d341ce51e4aa3f91b41806aa12,
     type: 3}
   m_PrefabInstance: {fileID: 8486751711725043032}
   m_PrefabAsset: {fileID: 0}

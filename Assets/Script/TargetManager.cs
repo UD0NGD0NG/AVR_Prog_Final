@@ -57,15 +57,10 @@ public class TargetManager : MonoBehaviour
         {
             ESC = !ESC;
             await Wait(1);
-            escape.gameObject.SetActive(ESC);
-            escape.transform.position = cameraCanvas.transform.position + cameraCanvas.transform.forward * 50;
+            escape.transform.position = cameraCanvas.transform.position + cameraCanvas.transform.forward * 70;
             escape.transform.rotation = cameraCanvas.transform.rotation;
+            escape.gameObject.SetActive(ESC);
         }
-    }
-
-    public void getShortenPath(double dist)
-    {
-        Debug.Log(dist);
     }
 
     public void setCurNodeID(int id)
