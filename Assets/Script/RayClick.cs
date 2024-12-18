@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RayClick : MonoBehaviour
@@ -27,20 +28,40 @@ public class RayClick : MonoBehaviour
         Debug.DrawRay(mainCam.transform.position, forward, Color.yellow);
         cursorGaugeImage.fillAmount = gaugeTimer;
 
-        if (Physics.Raycast(mainCam.transform.position, forward, out hit) && TargetManager.instance.targets.Contains(hit.transform.gameObject) && !isMoving)
+        if (Physics.Raycast(mainCam.transform.position, forward, out hit))
         {
-            gaugeTimer += 1.0f / gazeTime * Time.deltaTime;
-            if (gaugeTimer >= 1.0f)
+            if (SceneManager.GetActiveScene().name == "StartScene")
             {
-                gaugeTimer = 0.0f;
-                goalPos = hit.transform.position;
-                isMoving = true;
-                StartCoroutine(MoveToTarget());
+                if (hit.transform.tag == "Button")
+                {
+                    gaugeTimer += 1.0f / gazeTime * Time.deltaTime;
+                    if (gaugeTimer >= 1.0f)
+                    {
+                        hit.transform.GetComponent<Button>().onClick.Invoke();
+                    }
+                }
+                else
+                {
+                    gaugeTimer = 0.0f;
+                }
             }
-        }
-        else
-        {
-            gaugeTimer = 0.0f;
+            else {
+                if (TargetManager.instance.targets.Contains(hit.transform.gameObject) && !isMoving)
+                {
+                    gaugeTimer += 1.0f / gazeTime * Time.deltaTime;
+                    if (gaugeTimer >= 1.0f)
+                    {
+                        gaugeTimer = 0.0f;
+                        goalPos = hit.transform.position;
+                        isMoving = true;
+                        StartCoroutine(MoveToTarget());
+                    }
+                }
+                else
+                {
+                    gaugeTimer = 0.0f;
+                }
+            }
         }
     }
 
