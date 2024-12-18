@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class TargetManager : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class TargetManager : MonoBehaviour
 
     public int curNodeID;
 
+    public Canvas escape;
+    public Canvas cameraCanvas;
+    private bool ESC = false;
 
     private void Awake()
     {
@@ -47,9 +51,16 @@ public class TargetManager : MonoBehaviour
         
     }
 
-    void Update()
+    async void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ESC = !ESC;
+            await Wait(1);
+            escape.gameObject.SetActive(ESC);
+            escape.transform.position = cameraCanvas.transform.position + cameraCanvas.transform.forward * 50;
+            escape.transform.rotation = cameraCanvas.transform.rotation;
+        }
     }
 
     public void getShortenPath(double dist)
@@ -64,6 +75,16 @@ public class TargetManager : MonoBehaviour
 
     public void ChangeScene(string name)
     {
+        if (name == "StartScene")
+        {
+            ESC = false;
+        }
         SceneManager.LoadScene(name);
+    }
+
+    public async Task Wait(int sec)
+    {
+        await Task.Delay(sec * 1000);
+
     }
 }

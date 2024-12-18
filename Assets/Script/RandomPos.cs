@@ -66,16 +66,10 @@ public class RandomPos : MonoBehaviour
     {
         result.gameObject.SetActive(true);
 
-        await WaitForStop();
+        await TargetManager.instance.Wait(1);
         result.transform.position = cameraCanvas.transform.position + cameraCanvas.transform.forward * 50;
         result.transform.rotation = cameraCanvas.transform.rotation;
 
         resultText.text = "Escape in " + timer + " seconds!";
-    }
-
-    async Task WaitForStop()
-    {
-        await Task.Delay(700);
-
-    }
+    }   
 }
