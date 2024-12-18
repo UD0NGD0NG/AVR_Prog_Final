@@ -30,37 +30,28 @@ public class RayClick : MonoBehaviour
 
         if (Physics.Raycast(mainCam.transform.position, forward, out hit))
         {
-            if (SceneManager.GetActiveScene().name == "StartScene")
+            if (hit.transform.tag == "Button")
             {
-                if (hit.transform.tag == "Button")
+                gaugeTimer += 1.0f / gazeTime * Time.deltaTime;
+                if (gaugeTimer >= 1.0f)
                 {
-                    gaugeTimer += 1.0f / gazeTime * Time.deltaTime;
-                    if (gaugeTimer >= 1.0f)
-                    {
-                        hit.transform.GetComponent<Button>().onClick.Invoke();
-                    }
-                }
-                else
-                {
-                    gaugeTimer = 0.0f;
+                    hit.transform.GetComponent<Button>().onClick.Invoke();
                 }
             }
-            else {
-                if (TargetManager.instance.targets.Contains(hit.transform.gameObject) && !isMoving)
-                {
-                    gaugeTimer += 1.0f / gazeTime * Time.deltaTime;
-                    if (gaugeTimer >= 1.0f)
-                    {
-                        gaugeTimer = 0.0f;
-                        goalPos = hit.transform.position;
-                        isMoving = true;
-                        StartCoroutine(MoveToTarget());
-                    }
-                }
-                else
+            else if (TargetManager.instance.targets.Contains(hit.transform.gameObject) && !isMoving)
+            {
+                gaugeTimer += 1.0f / gazeTime * Time.deltaTime;
+                if (gaugeTimer >= 1.0f)
                 {
                     gaugeTimer = 0.0f;
+                    goalPos = hit.transform.position;
+                    isMoving = true;
+                    StartCoroutine(MoveToTarget());
                 }
+            }
+            else
+            {
+                gaugeTimer = 0.0f;
             }
         }
     }

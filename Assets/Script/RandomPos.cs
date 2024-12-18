@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class RandomPos : MonoBehaviour
 {
@@ -18,9 +18,10 @@ public class RandomPos : MonoBehaviour
     public GameObject player;
     public Text info;
     public Text goal;
+
+    public Canvas result;
     public Text resultText;
-    public Button restartButton;
-    public Button exitButton;
+    public GameObject cameraCanvas;
 
     private double timer = 0.0;
     private bool isPlaying = true;
@@ -34,6 +35,7 @@ public class RandomPos : MonoBehaviour
         size = targets.Count;
 
         startNodeID = Random.Range(1, size + 1);
+        TargetManager.instance.curNodeID = startNodeID;
         endNodeID = startNodeID;
         while (endNodeID == startNodeID)
         {
@@ -54,19 +56,26 @@ public class RandomPos : MonoBehaviour
             timer += Time.deltaTime;
             if (TargetManager.instance.curNodeID == endNodeID)
             {
-                Debug.Log("Clear");
                 isPlaying = false;
-                showResult();
+                ShowResult();
             }
         }
     }
 
-    void showResult()
+    async void ShowResult()
     {
-        resultText.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(true);
-        exitButton.gameObject.SetActive(true);
+        result.gameObject.SetActive(true);
+
+        await WaitForStop();
+        result.transform.position = cameraCanvas.transform.position + cameraCanvas.transform.forward * 50;
+        result.transform.rotation = cameraCanvas.transform.rotation;
 
         resultText.text = "Escape in " + timer + " seconds!";
+    }
+
+    async Task WaitForStop()
+    {
+        await Task.Delay(700);
+
     }
 }
