@@ -181,13 +181,13 @@ public class CalculateDistance : MonoBehaviour
             GameObject sprite = curPos.transform.GetChild(0).gameObject;
             sprite.SetActive(true);
 
-            yield return StartCoroutine(WaitForReach(curPos.GetComponent<BoxCollider>(), sprite));
+            yield return StartCoroutine(WaitForReach(curPos.GetComponent<BoxCollider>()));
             
             sprite.SetActive(false);
         }
     }
 
-    IEnumerator WaitForReach(BoxCollider b, GameObject sprite)
+    IEnumerator WaitForReach(BoxCollider b)
     {
         while (b.enabled) yield return null;
     }
